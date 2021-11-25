@@ -1,0 +1,208 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="REQUESTURL" content="cms.senimandigital.kom/index.php/senimandigital/1.0.0/source/generate_pemroses/master_datalist/">
+<meta name="date" content="11-09-2018">
+<meta name="anggota_id" content="1">
+<title>Senimandigital</title>
+<link  href="../assets/CodeMirror/5.57.0/lib/codemirror.css" rel="stylesheet">
+<script src="../assets/CodeMirror/5.57.0/src/codemirror.js"></script> 
+
+<script src="../assets/CodeMirror/5.57.0/mode/javascript/javascript.js"></script>
+<script src="../assets/CodeMirror/5.57.0/mode/xml/xml.js"></script>
+
+<script src="../assets/CodeMirror/5.57.0/mode/clike/clike.js"></script>
+<script src="../assets/CodeMirror/5.57.0/mode/php/php.js"></script>
+ <body>
+<main>
+  <table>
+    <tbody>
+      <tr>
+        <td role="article"><article>
+            <div>
+              <div style="margin: auto; width:100%; position:relatif;"><img style="float:left;" src="http://gambar.senimandigital.kom/website/action-back.png" width="16" alt="<<" title="Kembali kehalaman sebelumnya" onClick="javascript:history.back()">
+                <div title="Halaman Selanjutnya" style="float:right"></div>
+              </div>
+            </div>
+            <section>
+              <h3>MANAJEMEN GENERATOR PEMROSES Senimandigital 1.0.0</h3>
+              <p role="deskripsi">Master Data List: Sejumlah data diambil dari database atau file, kemudian ditampilkan dalam bentik List data.&nbsp;</p>
+              <form method="post" name="form_update_template_section">
+                    <table frame="vsides">
+                      <caption align="top">
+                      Script: Data List
+                      </caption>
+                      <tbody rules="rows">
+                        <tr>
+                          <th align="left" valign="middle">AREA PHP</th>
+                        </tr>
+                        <tr>
+                          <td>
+                            <textarea data-format="php" name="template_section_source_sebelum" id="templatek" rows="16" style="display: none;">&lt;?php
+$##MasterFieldPrimary##_@@MasterTabelNama@@ = "-1";
+if (isset($_GET['@@MasterFieldPrimary@@'])) {
+  $##MasterFieldPrimary##_@@MasterTabelNama@@ = $_GET['@@MasterFieldPrimary@@'];
+}
+mysql_select_db($database_@@ModulProyekDatabase@@, $@@ModulProyekDatabase@@);
+$query_@@MasterTabelNama@@ = sprintf("SELECT * FROM @@MasterTabelNama@@ WHERE @@MasterTabelNama@@.@@MasterFieldPrimary@@=%s", GetSQLValueString($##MasterFieldPrimary##_@@MasterTabelNama@@, "int"));
+$@@MasterTabelNama@@ = mysql_query($query_@@MasterTabelNama@@, $@@ModulProyekDatabase@@) or die(mysql_error());
+$row_@@MasterTabelNama@@ = mysql_fetch_assoc($@@MasterTabelNama@@);
+$totalRows_@@MasterTabelNama@@ = mysql_num_rows($@@MasterTabelNama@@);
+?&gt;</textarea>
+</td>
+                        </tr>
+                        <tr>
+                          <th align="left" valign="middle">AREA HTML</th>
+                        </tr>
+                        
+                        <tr>
+                          <td><textarea data-format="php" id="php" rows="20" >
+&lt;?php
+            if ($rows_modul_database_field['modul_database_field_analisis'] = '@@knowledge_root_nama@@') {
+              $saran_entitas[$rows_modul_database_field['modul_database_field_analisis']] = '@@knowledge_nama@@';
+              }
+            ?>
+                          </textarea></td>
+                        </tr>
+                        <tr>
+                          <th align="left" valign="middle">AREA HTML</th>
+                        </tr>
+                        <tr>
+                          <td><textarea data-format="htm" name="htm" rows="20" id="htm">&lt;table&gt;
+&lt;tr&gt;
+  &lt;td role="article"&gt;
+  &lt;section&gt;
+  &lt;h3&gt;@@MasterTabelJudul@@&lt;/h3&gt;
+  &lt;table frame="box"&gt;
+  &lt;caption align="top"&gt;DAFTAR AKSI YANG TIDAK AKAN DIGENERATE&lt;/caption&gt;
+  &lt;thead&gt;
+  &lt;tr&gt;
+&lt;@ if(@@MasterFieldJudul@@ != '') @&gt;
+    &lt;th&gt;Judul&lt;/th&gt;
+&lt;@ endif @&gt;
+&lt;@ if(@@MasterFieldDeskripsi@@ != '') @&gt;
+    &lt;th&gt;Deskripsi&lt;/th&gt;
+&lt;@ endif @&gt;
+  &lt;/tr&gt;
+  &lt;/thead&gt;    
+  &lt;tbody rules="rows"&gt;
+  &lt;tr&gt;
+&lt;@ if(@@MasterFieldJudul@@ != '') @&gt;
+    &lt;td&gt;&lt;?php echo $row_@@MasterTabelNama@@['@@MasterFieldJudul@@']; ?&gt;&lt;/td&gt;
+&lt;@ endif @&gt;
+&lt;@ if(@@MasterFieldDeskripsi@@ != '') @&gt;
+    &lt;td&gt;&lt;?php echo $row_@@MasterTabelNama@@['@@MasterFieldDeskripsi@@']; ?&gt;&lt;/td&gt;
+&lt;@ endif @&gt;
+  &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;/section&gt;
+  &lt;/td&gt;
+  &lt;td role="aside"&gt;
+  &lt;section&gt;
+  &lt;h3&gt;DESCRIPTION&lt;/h3&gt;
+  &lt;/section&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</textarea></td>
+                        </tr>
+                      </tbody>
+                      
+                    </table>
+                  </form>
+            </section>
+            
+        </article></td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+<script>
+var editor  = CodeMirror.fromTextArea(document.getElementById("templatek"), { lineNumbers: true, mode: "javascript", matchBrackets: true });
+var editor3 = CodeMirror.fromTextArea(document.getElementById("php"),       {
+        lineNumbers: true,
+        matchBrackets: true,
+        mode: "application/x-httpd-php",
+        indentUnit: 8,
+        indentWithTabs: true,
+        enterMode: "keep",
+        tabMode: "shift"
+      });
+    </script>
+	<script>
+      var dummy = {
+        attrs: {
+          color: ["red", "green", "blue", "purple", "white", "black", "yellow"],
+          size: ["large", "medium", "small"],
+          description: null
+        },
+        children: []
+      };
+
+      var tags = {
+        "!top": ["top"],
+        "!attrs": {
+          id: null,
+          class: ["A", "B", "C"]
+        },
+        top: {
+          attrs: {
+            lang: ["en", "de", "fr", "nl"],
+            freeform: null
+          },
+          children: ["animal", "plant"]
+        },
+        animal: {
+          attrs: {
+            name: null,
+            isduck: ["yes", "no"]
+          },
+          children: ["wings", "feet", "body", "head", "tail"]
+        },
+        plant: {
+          attrs: {name: null},
+          children: ["leaves", "stem", "flowers"]
+        },
+        wings: dummy, feet: dummy, body: dummy, head: dummy, tail: dummy,
+        leaves: dummy, stem: dummy, flowers: dummy
+      };
+
+      function completeAfter(cm, pred) {
+        var cur = cm.getCursor();
+        if (!pred || pred()) setTimeout(function() {
+          if (!cm.state.completionActive)
+            cm.showHint({completeSingle: false});
+        }, 100);
+        return CodeMirror.Pass;
+      }
+
+      function completeIfAfterLt(cm) {
+        return completeAfter(cm, function() {
+          var cur = cm.getCursor();
+          return cm.getRange(CodeMirror.Pos(cur.line, cur.ch - 1), cur) == "<";
+        });
+      }
+
+      function completeIfInTag(cm) {
+        return completeAfter(cm, function() {
+          var tok = cm.getTokenAt(cm.getCursor());
+          if (tok.type == "string" && (!/['"]/.test(tok.string.charAt(tok.string.length - 1)) || tok.string.length == 1)) return false;
+          var inner = CodeMirror.innerMode(cm.getMode(), tok.state).state;
+          return inner.tagName;
+        });
+      }
+
+      var editor = CodeMirror.fromTextArea(document.getElementById("htm"), {
+        mode: "xml",
+        lineNumbers: true,
+        extraKeys: {
+          "'<'": completeAfter,
+          "'/'": completeIfAfterLt,
+          "' '": completeIfInTag,
+          "'='": completeIfInTag,
+          "Ctrl-Space": "autocomplete"
+        },
+        hintOptions: {schemaInfo: tags}
+      });
+    </script>
+    </body>
+</html>
